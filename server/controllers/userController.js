@@ -22,7 +22,7 @@ const login = async (req, res) => {
             if(userInfo.pwdHash && userInfo.pwdHash.length > 0 && userInfo.pwdHash === req.body.password){
                     console.log("matched and generating token");
                     const tokenId = await authService.createAuthToken({emailId});
-                    res.status(200).send({tokenId:tokenId});
+                    res.status(200).send({token:tokenId});
                     return;
             }
             else{
