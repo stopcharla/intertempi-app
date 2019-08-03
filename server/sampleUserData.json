@@ -1,0 +1,10 @@
+{
+    "credentials":{
+        "user":"202cb962ac59075b964b07152d234b70", 
+        "guest":"fcf41657f02f88137a1bcf068a32c0a3"
+    },
+    "emailMap":{
+        "user@intertempi.com":"user",
+        "guest@intertempi.com":"guest"
+    }
+}
