@@ -92,7 +92,7 @@
   border: none;
   color: white;
   outline: none;
-  border-bottom: 1px solid #445366;
+  border-bottom: 2px solid #445366;
   font-size: 1em;
   font-weight: 300;
   padding-bottom: 10px;
@@ -146,11 +146,17 @@
 }
 
 .HomePage_Item {
-  width: '250px';
-  height: '300px';
-  display: "inline-block";
-  margin: '30px';
-  padding: 10px 30%;
+  width: 250px;
+  height: 300px;
+  display: inline-block;
+  margin: 30px;
+  padding: 10px;
+  text-align: center;
+}
+
+.HomePage_ItemImage {
+  width: 175px;
+  height: 200px;
 }
 
 .HomePage {
@@ -158,6 +164,10 @@
     background-color: #2E4158;
     padding: 25px 40px;
     overflow: auto;
+}
+
+.HomePage_Header {
+  padding: 10px
 }
 
 .HomePage_Logout {
@@ -170,8 +180,25 @@
   font-size: .8em;
   font-weight: 500;
   margin-top: 1px;
-  margin-right: 2px;
-  position:relative;
-  top:0;
-  right:0;
+  margin-right: 40px;
+  float: right;
+}
+
+.HomePage_ItemTitle {
+  width: 250px;
+  /* height: 100px; */
+  white-space: nowrap; 
+  width: 250px; 
+  overflow: hidden;
+  text-overflow: ellipsis; 
+  text-align: center;
+}
+
+.HomePage_Message {
+  display: 'inline-block';
+  color:white;
+}
+
+.HomePage_Items {
+  padding-top: 5px
 }

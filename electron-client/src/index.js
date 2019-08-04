@@ -15,13 +15,11 @@ import './App.css';
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 
-
-
 ReactDOM.render((
     <Router>
         <Switch>
-            <Route exact path="/" name="Login Page" component={SignIn} />
-            <Route path="/home" name="Home" component={Home} />
+            <Route exact path='/' name='Login Page' component={SignIn} />
+            <Route path='/home' name='Home' component={Home} />
         </Switch>
     </Router>
 ), document.getElementById('root'));

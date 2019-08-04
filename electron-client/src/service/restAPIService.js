@@ -11,9 +11,9 @@ export default {
             password: md5(password)
         }
         try {
-            // delete axios.defaults.headers.common["authorization"];
+            // delete axios.defaults.headers.common['authorization'];
             let t = await axios.post('/login', data)
-            console.log("success::",t)
+            console.log('success::',t)
             localStorage.setItem('token', JSON.stringify(t.data.token));
             axios.defaults.headers.common['authorization'] = JSON.parse(localStorage.getItem('token'));
             return true
