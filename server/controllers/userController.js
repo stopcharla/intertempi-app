@@ -1,8 +1,6 @@
 const userService = require('../services/userService');
 const utils = require('../utils/utils');
 const authService = require('../services/authService');
-const sampleResponse = require('../sampleResponse');
-
 
 /**
  * Logs in the user, the credentials are extracted from the body and compared agnaist the db values,
@@ -38,15 +36,17 @@ const login = async (req, res) => {
 }
 
 /**
- * To obtain the home page for users, currently provides static car info
+ * To obtain the home page for users, currently provides the flickr api to fetch images for user,
  * which can be extended further later
  * @param {*} req 
  * @param {*} res 
  */
 const getHomePageInfo = async (req, res) => {
-    if(sampleResponse.data){
-        res.status(200).send({message:"successfully fetched data", data:sampleResponse.data})
-    }else{
+
+    try{
+        const response = await userService.getHomePageData()
+        res.status(200).send(response)
+    }catch(err)  {
         res.status(500).send({message:"error occurred"})
     }
 }

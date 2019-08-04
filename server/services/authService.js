@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken')
-// const Cache = require('../cache/cache')
 const config = require('../config')
 
 /**

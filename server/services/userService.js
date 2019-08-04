@@ -1,5 +1,6 @@
 const userData = require('../sampleUserData.json');
-console.log(userData.emailMap)
+const rp = require('request-promise');
+const config = require('../config.json');
 
 const getUserInfo = function (userName, isEmail){
     console.log(`getting userinfo for user:${userName} isEmail:${isEmail}`);
@@ -13,4 +14,8 @@ const getUserInfo = function (userName, isEmail){
     return { pwdHash }
 }
 
-module.exports = { getUserInfo }
+const getHomePageData = async () =>{
+    return await rp(config.DataURL)
+}
+
+module.exports = { getUserInfo, getHomePageData }
