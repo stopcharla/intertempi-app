@@ -1,6 +1,6 @@
 import axios from 'axios';
-// import { session } from '../ext';
-axios.defaults.baseURL = "http://localhost:8050/api/v1/";
+import config from '../config.json';
+axios.defaults.baseURL = config.hostBaseUrl;
 
 export default {
 
@@ -24,13 +24,21 @@ export default {
         }
     },
 
+    async getUserHomePage() {
+        try {
+            axios.defaults.headers.common['authorization'] = `Bearer ${JSON.parse(localStorage.getItem('token'))}`;
+            let home = await axios.get('/home')
+            return home;
+        }
+        catch (err) {
+            console.log(err)
+            return false
+        }
+    },
+
     async logout() {
         try {
-            // axios.defaults.headers.common['Authorization'] =  localStorage.getItem('token');
-            let user = JSON.parse(localStorage.getItem('user'))
-            let t = await axios.get(`/user/${user._id}/logout`)
             localStorage.removeItem('token');
-            localStorage.removeItem('user');
             return true
         }
         catch (err) {

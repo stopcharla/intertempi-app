@@ -136,11 +136,42 @@
   color: white;
   border-bottom: 1px solid #199087;
   text-decoration: none;
-  display: inline-block;
+  display: grid;
   padding-bottom: 2px;
   margin-left: 5px;
 }
 
 .FormField__errorLabel {
   color: red;
+}
+
+.HomePage_Item {
+  width: '250px';
+  height: '300px';
+  display: "inline-block";
+  margin: '30px';
+  padding: 10px 30%;
+}
+
+.HomePage {
+    width: 100%;
+    background-color: #2E4158;
+    padding: 25px 40px;
+    overflow: auto;
+}
+
+.HomePage_Logout {
+  background-color: #52C4B9;
+  color: white;
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  padding: 10px 10px;
+  font-size: .8em;
+  font-weight: 500;
+  margin-top: 1px;
+  margin-right: 2px;
+  position:relative;
+  top:0;
+  right:0;
 }

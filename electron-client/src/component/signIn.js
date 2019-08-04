@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import RestService from '../service/restAPIService';
 
-class signIn extends Component {
-    constructor() {
-        super();
+class SignIn extends Component {
+    constructor(props) {
+        super(props);
 
         this.state = {
             email: '',
@@ -44,8 +44,8 @@ class signIn extends Component {
         // make rest call
         const result = await RestService.login(this.state.email, this.state.password);
         if (result){
-          // this.props.history.push('/home');
-          this.setState({ errorMessage: "login success" })
+          this.props.history.push('/home');
+          // this.setState({ errorMessage: "login success" })
         }else{
           this.setState({ errorMessage: "Invalid credentials or server error" })
         }
@@ -57,7 +57,12 @@ class signIn extends Component {
 
     render() {
         return (
-        <div className="FormCenter">
+
+          <div className="App">
+            <div className="App__Form">
+            <div className="FormTitle">
+              <div className="FormCenter">
+          <h1>Login</h1>
             <form onSubmit={this.handleSubmit} className="FormFields" onSubmit={this.handleSubmit} >
             <div className="FormField">
                 <label className="FormField__Label" htmlFor="email">Username</label>
@@ -76,8 +81,13 @@ class signIn extends Component {
               
             </form>
           </div>
+              </div>  
+          </div>
+        </div>
+
+        
         );
     }
 }
 
-export default signIn;
+export default SignIn;
