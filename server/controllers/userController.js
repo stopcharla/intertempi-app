@@ -14,24 +14,24 @@ const authService = require('../services/authService');
 const login = async (req, res) => {
     if(utils.validateObject(req.body, ['emailId', 'password'])){
         try{
-            console.log("validating object");
+            console.log('validating object');
             const emailId = req.body.emailId.toLowerCase();
             const userInfo = userService.getUserInfo(emailId, utils.isEmail(emailId));
             if(userInfo.pwdHash && userInfo.pwdHash.length > 0 && userInfo.pwdHash === req.body.password){
-                    console.log("matched and generating token");
+                    console.log('matched and generating token');
                     const tokenId = await authService.createAuthToken({emailId});
                     res.status(200).send({token:tokenId});
                     return;
             }
             else{
-                throw Error({message:'invalid credentials'})
+                res.status(401).send({message:'invalid credentials'})
             }       
         } catch (error) {
-            console.error('caught exception',error)
-            res.status(401).send({message:"invalid credentials"})
+            // console.error('caught exception',error)
+            res.status(401).send({message:'invalid credentials'})
         }
     }else{
-        res.status(400).send({message:"username or password missing"})
+        res.status(400).send({message:'username or password missing'})
     } 
 }
 
@@ -47,7 +47,7 @@ const getHomePageInfo = async (req, res) => {
         const response = await userService.getHomePageData()
         res.status(200).send(response)
     }catch(err)  {
-        res.status(500).send({message:"error occurred"})
+        res.status(500).send({message:'error occurred'})
     }
 }
 

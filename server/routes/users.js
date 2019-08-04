@@ -12,20 +12,20 @@ const authService = require('../services/authService')
  * @param {*} next 
  */
 const authMiddleWare = async (req, res, next) => {
-  console.log("Auth middleware")
+  console.log('Auth middleware')
   const bearerToken = req.headers['authorization'];
   if( typeof bearerToken !== 'undefined'){
     try{
       const token = bearerToken.split(' ')[1];
       const userInfo = await authService.validateAuthToken(token)
-      console.log("auth successfully verified:", userInfo.emailId)
+      console.log('auth successfully verified:', userInfo.emailId)
       next()
     }catch(error) {
-      res.status(401).send({message:"invalid credentials"})
+      res.status(401).send({message:'invalid credentials'})
     }
     
   }else{
-    res.status(401).send({message:"invalid credentials"})
+    res.status(401).send({message:'invalid credentials'})
   }
 }
 
@@ -41,7 +41,7 @@ router.get('/home', [authMiddleWare] ,function (req, res) {
  * route to login a user
  */
 router.post('/login', function (req,res) {
-  console.log("login request:", req.body);
+  console.log('login request:', req.body);
   userController.login(req, res);
 })
 
