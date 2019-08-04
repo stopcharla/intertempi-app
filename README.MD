@@ -12,3 +12,8 @@ To run the code.
 8) npm run electron-dev
 
 The elctron app starts running.
+login with below credentials
+
+loginId: guest@intertempi.com/guest
+password: guest123
+
