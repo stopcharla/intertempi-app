@@ -34,7 +34,7 @@ class SignIn extends Component {
         e.preventDefault();
 
         if(!this.validateForm()){
-          this.setState({errorMessage:'Email or password field are mandatory'})
+          this.setState({errorMessage:'Email and password fields are mandatory'})
           return
         }else{
           this.setState({errorMessage:''})
