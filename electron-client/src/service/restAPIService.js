@@ -1,14 +1,14 @@
 import axios from 'axios';
 import config from '../config.json';
+import md5 from 'md5';
 axios.defaults.baseURL = config.hostBaseUrl;
 
 export default {
 
     async login(email, password) {
-        console.log(`$login::{email,password}`)
         let data = {
             emailId: email,
-            password: password
+            password: md5(password)
         }
         try {
             // delete axios.defaults.headers.common["authorization"];

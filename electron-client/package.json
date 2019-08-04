@@ -10,6 +10,7 @@
     "electron-is-dev": "^1.1.0",
     "glamor": "^2.20.40",
     "is-email": "^1.0.0",
+    "md5": "^2.2.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-infinite-scroll-component": "^4.5.2",
