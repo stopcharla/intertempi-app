@@ -4,8 +4,8 @@
   "description": "backend for the intertempi electron app",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "test": "NODE_ENV=test nyc mocha --exit --timeout 20000"
   },
   "author": "",
   "license": "ISC",
@@ -13,7 +13,17 @@
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
+    "md5": "^2.2.1",
     "request": "^2.88.0",
     "request-promise": "^4.2.4"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^5.16.0",
+    "eslint-plugin-node": "^9.1.0",
+    "mocha": "^6.0.2",
+    "nyc": "^13.3.0",
+    "sinon": "^7.3.1",
+    "supertest": "^4.0.2"
   }
 }
